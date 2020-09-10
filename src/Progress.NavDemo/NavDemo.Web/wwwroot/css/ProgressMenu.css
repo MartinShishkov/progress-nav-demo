@@ -1,0 +1,20 @@
+﻿.progress-menu ul > li.root-item {
+    display: inline-block;
+    float: left;
+    padding: 10px;
+    background-color: gainsboro;
+    position: relative;
+    height: 40px;
+}
+
+.progress-menu ul .root-item:hover .sub-menu {
+    display: block;
+}
+
+.progress-menu ul .sub-menu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background-color: pink;
+}

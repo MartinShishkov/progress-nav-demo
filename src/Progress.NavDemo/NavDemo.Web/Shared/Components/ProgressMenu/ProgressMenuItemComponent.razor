@@ -1,0 +1,19 @@
+﻿@using NavDemo.Web.Models
+
+<li class="@(IsRoot ? "root-item" : "sub-item") @(Item.HasChildren ? "has-children" : "")">
+    <a href="javascript:void(0);" @onclick="() => Item.OnSelect(Item.Id)">@Item.Text</a>
+    <ul class="sub-menu">
+        @foreach (var item in Item.Children)
+        {
+            <ProgressMenuItemComponent Item="@item" IsRoot="false"/>
+        }
+    </ul>
+</li>
+
+@code {
+    [Parameter]
+    public ProgressMenuItem Item { get; set; }
+
+    [Parameter]
+    public bool IsRoot { get; set; }
+}

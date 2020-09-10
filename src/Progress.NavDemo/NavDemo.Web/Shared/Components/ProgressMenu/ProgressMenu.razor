@@ -1,0 +1,15 @@
+﻿@using NavDemo.Web.Models
+<nav class="progress-menu">
+    <ul>
+        @foreach (var item in Items)
+        {
+            <ProgressMenuItemComponent Item="@item" IsRoot="true" />
+        }
+    </ul>
+</nav>
+
+
+@code {
+    [Parameter]
+    public ProgressMenuItem[] Items { get; set; }
+}
