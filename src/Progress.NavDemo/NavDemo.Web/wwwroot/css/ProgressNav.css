@@ -1,0 +1,49 @@
+.progress-menu ul .root-item {
+  display: inline-block;
+  float: left;
+  padding: 10px;
+  background-color: gainsboro;
+  position: relative;
+  height: 40px;
+  background-color: white;
+}
+.progress-menu li {
+  background-color: white;
+}
+.progress-menu li a {
+  color: black;
+}
+.progress-menu li:hover {
+  background-color: gainsboro;
+}
+.progress-menu li:hover a {
+  color: hotpink;
+}
+
+.has-children:hover > .sub-menu {
+  display: block;
+}
+
+.sub-menu {
+  display: none;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  min-width: 100px;
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+.sub-menu li {
+  padding: 10px;
+}
+
+.menu-bottom {
+  top: 40px;
+  left: 0;
+}
+
+.menu-right {
+  top: 0;
+  right: -100px;
+}
