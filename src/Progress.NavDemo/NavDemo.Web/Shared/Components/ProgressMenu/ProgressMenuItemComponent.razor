@@ -1,7 +1,7 @@
 ﻿@using NavDemo.Web.Models
 
 @{
-    var icon = IsRoot ? "V" : ">";
+    var icon = IsRoot ? "▼" : "▶";
     icon = Item.HasChildren ? icon : "";
 }
 
@@ -12,7 +12,7 @@
         <ul class="sub-menu @PlacementClass">
             @foreach (var item in Item.Children)
             {
-                <ProgressMenuItemComponent Item="@item" IsRoot="false" PlacementClass="menu-right"/>
+                <ProgressMenuItemComponent Item="@item" IsRoot="false" PlacementClass="menu-right" />
             }
         </ul>
     }

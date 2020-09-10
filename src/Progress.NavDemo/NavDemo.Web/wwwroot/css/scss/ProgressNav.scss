@@ -1,17 +1,19 @@
-﻿.progress-menu {
+﻿$min-width: 120px;
+
+.progress-menu {
     ul {
         .root-item {
             display: inline-block;
             float: left;
             padding: 10px;
             background-color: gainsboro;
-            position: relative;
             height: 40px;
             background-color: white;
         }
     }
 
     li {
+        position: relative;
         a {
             color: black;
         }
@@ -40,7 +42,7 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    min-width: 100px;
+    min-width: $min-width;
     box-shadow: 0px 1px 2px 1px rgb(0 0 0 / 30%);
     z-index: 1;
 
@@ -56,5 +58,5 @@
 
 .menu-right {
     top: 0;
-    right: -100px;
+    right: -$min-width;
 }
