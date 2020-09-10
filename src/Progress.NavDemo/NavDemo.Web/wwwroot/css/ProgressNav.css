@@ -28,8 +28,7 @@
 .progress-menu li:hover > a {
   color: hotpink;
 }
-
-.has-children:hover > .sub-menu {
+.progress-menu li:hover > .sub-menu {
   display: block;
 }
 

@@ -7,7 +7,7 @@
         : "";
 }
 
-<li class="@(IsRoot ? "root-item" : "sub-item") @(Item.HasChildren ? "has-children" : "")">
+<li class="@(IsRoot ? "root-item" : "sub-item")">
     <a href="javascript:void(0);" @onclick="() => Item.OnSelect(Item.Id)">@Item.Text <i>@icon</i></a>
     @if (Item.HasChildren)
     {

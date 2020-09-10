@@ -31,18 +31,16 @@
         }
 
         &:hover {
+            background-color: #f2f2f2;
+
             & > a {
                 color: hotpink;
             }
 
-            background-color: #f2f2f2;
+            & > .sub-menu {
+                display: block;
+            }
         }
-    }
-}
-
-.has-children {
-    &:hover > .sub-menu {
-        display: block;
     }
 }
 
