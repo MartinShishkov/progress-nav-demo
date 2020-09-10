@@ -1,8 +1,10 @@
 ﻿@using NavDemo.Web.Models
 
 @{
-    var icon = IsRoot ? "▼" : "▶";
-    icon = Item.HasChildren ? icon : "";
+    var icon = Item.HasChildren 
+        ? IsRoot 
+            ? "▼" : "▶" 
+        : "";
 }
 
 <li class="@(IsRoot ? "root-item" : "sub-item") @(Item.HasChildren ? "has-children" : "")">
