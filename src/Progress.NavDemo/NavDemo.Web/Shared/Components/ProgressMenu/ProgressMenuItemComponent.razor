@@ -1,13 +1,21 @@
 ﻿@using NavDemo.Web.Models
 
+@{
+    var icon = IsRoot ? "V" : ">";
+    icon = Item.HasChildren ? icon : "";
+}
+
 <li class="@(IsRoot ? "root-item" : "sub-item") @(Item.HasChildren ? "has-children" : "")">
-    <a href="javascript:void(0);" @onclick="() => Item.OnSelect(Item.Id)">@Item.Text</a>
-    <ul class="sub-menu">
-        @foreach (var item in Item.Children)
-        {
-            <ProgressMenuItemComponent Item="@item" IsRoot="false"/>
-        }
-    </ul>
+    <a href="javascript:void(0);" @onclick="() => Item.OnSelect(Item.Id)">@Item.Text @icon</a>
+    @if (Item.HasChildren)
+    {
+        <ul class="sub-menu @PlacementClass">
+            @foreach (var item in Item.Children)
+            {
+                <ProgressMenuItemComponent Item="@item" IsRoot="false" PlacementClass="menu-right"/>
+            }
+        </ul>
+    }
 </li>
 
 @code {
@@ -16,4 +24,7 @@
 
     [Parameter]
     public bool IsRoot { get; set; }
+
+    [Parameter]
+    public string PlacementClass { get; set; }
 }
