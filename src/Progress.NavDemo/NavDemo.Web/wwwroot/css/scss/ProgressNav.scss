@@ -21,11 +21,11 @@
         background-color: white;
 
         &:hover {
-            a {
+            & > a {
                 color: hotpink;
             }
 
-            background-color: gainsboro;
+            background-color: #f2f2f2;
         }
     }
 }
@@ -58,5 +58,5 @@
 
 .menu-right {
     top: 0;
-    right: -$min-width;
+    right: -100%;
 }
