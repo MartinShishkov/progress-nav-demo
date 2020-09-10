@@ -3,9 +3,9 @@
 .progress-menu {
     ul {
         .root-item {
+            min-width: $min-width;
             display: inline-block;
             float: left;
-            padding: 10px;
             background-color: gainsboro;
             height: 40px;
             background-color: white;
@@ -14,11 +14,21 @@
 
     li {
         position: relative;
+        background-color: white;
+
         a {
             color: black;
-        }
+            text-decoration: none;
+            padding: 10px;
+            display: block;
 
-        background-color: white;
+            i {
+                font-size: 8px;
+                font-style: normal;
+                float: right;
+                line-height: 23px;
+            }
+        }
 
         &:hover {
             & > a {
@@ -45,10 +55,6 @@
     min-width: $min-width;
     box-shadow: 0px 1px 2px 1px rgb(0 0 0 / 30%);
     z-index: 1;
-
-    li {
-        padding: 10px;
-    }
 }
 
 .menu-bottom {

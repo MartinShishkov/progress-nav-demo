@@ -6,7 +6,7 @@
 }
 
 <li class="@(IsRoot ? "root-item" : "sub-item") @(Item.HasChildren ? "has-children" : "")">
-    <a href="javascript:void(0);" @onclick="() => Item.OnSelect(Item.Id)">@Item.Text @icon</a>
+    <a href="javascript:void(0);" @onclick="() => Item.OnSelect(Item.Id)">@Item.Text <i>@icon</i></a>
     @if (Item.HasChildren)
     {
         <ul class="sub-menu @PlacementClass">
