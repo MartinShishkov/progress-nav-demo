@@ -1,0 +1,64 @@
+﻿@inherits TestComponentBase
+@using NavDemo.Web.Models
+@using NavDemo.Web.Shared.Components.ProgressMenu
+
+<SnapshotTest Description="ProgressMenu renders correct structure">
+    <TestInput>
+        <ProgressMenu Items="Items"/>
+    </TestInput>
+    <ExpectedOutput>
+        <nav class="progress-menu">
+            <ul>
+                <li class="root-item">
+                    <a href="javascript:void(0);">root 1 <i>▼</i></a>
+                    <ul class="sub-menu menu-bottom">
+                        <li class="sub-item">
+                            <a href="javascript:void(0);">1.1 <i>▶</i></a>
+                            <ul class="sub-menu menu-right">
+                                <li class="sub-item">
+                                    <a href="javascript:void(0);">1.1.1 <i></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </ExpectedOutput>
+</SnapshotTest>
+
+<Fixture Description="Clicking on the first root element should update message" Test="Test">
+    <ComponentUnderTest>
+        <div>
+            <ProgressMenu Items="Items"/>
+            <h1>@TestMessage</h1>
+        </div>
+    </ComponentUnderTest>
+    <Fragment>
+        <h1>First root clicked 1</h1>
+    </Fragment>
+</Fixture>
+
+@code {
+
+    public ProgressMenuItem[] Items => new[]
+    {
+        new ProgressMenuItem(1, "root 1", i => { TestMessage = $"First root clicked {i}";}, new[]
+        {
+            new ProgressMenuItem(2, "1.1", i => {}, new[]
+            {
+                new ProgressMenuItem(3, "1.1.1", i => {}),
+            }),
+        })
+    };
+
+    public string TestMessage { get; set; }
+
+    public void Test(Fixture fixture)
+    {
+        var cut = fixture.GetComponentUnderTest<ProgressMenu>();
+        cut.Find("a").Click();
+
+        Assert.Equal("First root clicked 1", TestMessage);
+    }
+}
