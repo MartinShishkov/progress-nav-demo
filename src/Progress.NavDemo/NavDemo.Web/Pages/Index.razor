@@ -4,7 +4,7 @@
 
 <h1>Index</h1>
 
-<ProgressMenu Items="Menu"/>
+<ProgressMenu Items="Menu" OnItemSelect="OnSelectHandler"/>
 
 @code{
     public ProgressMenuItem[] Menu { get; set; }
@@ -18,41 +18,41 @@
     {
         Menu = new[]
         {
-            new ProgressMenuItem(1, "item 1", onSelect: OnSelectHandler, new[]
+            new ProgressMenuItem(1, "item 1", new[]
             {
-                new ProgressMenuItem(2, "item 1.1", onSelect: OnSelectHandler),
-                new ProgressMenuItem(3, "item 1.2", onSelect: OnSelectHandler),
-                new ProgressMenuItem(4, "item 1.3", onSelect: OnSelectHandler),
+                new ProgressMenuItem(2, "item 1.1"),
+                new ProgressMenuItem(3, "item 1.2"),
+                new ProgressMenuItem(4, "item 1.3"),
             }),
-            new ProgressMenuItem(5, "item 2", onSelect: OnSelectHandler, new[]
+            new ProgressMenuItem(5, "item 2", new[]
             {
-                new ProgressMenuItem(6, "item 2.1", onSelect: OnSelectHandler),
-                new ProgressMenuItem(7, "item 2.2", onSelect: OnSelectHandler),
-                new ProgressMenuItem(8, "item 2.3", onSelect: OnSelectHandler),
+                new ProgressMenuItem(6, "item 2.1"),
+                new ProgressMenuItem(7, "item 2.2"),
+                new ProgressMenuItem(8, "item 2.3"),
             }),
-            new ProgressMenuItem(9, "item 3", onSelect: OnSelectHandler, new[]
+            new ProgressMenuItem(9, "item 3", new[]
             {
-                new ProgressMenuItem(10, "item 3.1", onSelect: OnSelectHandler, new[]
+                new ProgressMenuItem(10, "item 3.1", new[]
                 {
-                    new ProgressMenuItem(11, "item 3.1.1", onSelect: OnSelectHandler, new []
+                    new ProgressMenuItem(11, "item 3.1.1", new []
                     {
-                        new ProgressMenuItem(12, "item 3.1.1.1", onSelect: OnSelectHandler),
-                        new ProgressMenuItem(13, "item 3.1.1.2", onSelect: OnSelectHandler),
-                        new ProgressMenuItem(14, "item 3.1.1.3", onSelect: OnSelectHandler, new[]
+                        new ProgressMenuItem(12, "item 3.1.1.1"),
+                        new ProgressMenuItem(13, "item 3.1.1.2"),
+                        new ProgressMenuItem(14, "item 3.1.1.3", new[]
                         {
-                            new ProgressMenuItem(15, "item 3.1.1.3.1", onSelect: OnSelectHandler),
-                            new ProgressMenuItem(16, "item 3.1.1.3.2", onSelect: OnSelectHandler),
+                            new ProgressMenuItem(15, "item 3.1.1.3.1"),
+                            new ProgressMenuItem(16, "item 3.1.1.3.2"),
                         }),
                     }),
-                    new ProgressMenuItem(17, "item 3.1.2", onSelect: OnSelectHandler, new[]
+                    new ProgressMenuItem(17, "item 3.1.2", new[]
                     {
-                        new ProgressMenuItem(18, "item 3.1.2.1", onSelect: OnSelectHandler),
-                        new ProgressMenuItem(19, "item 3.1.2.2", onSelect: OnSelectHandler),
+                        new ProgressMenuItem(18, "item 3.1.2.1"),
+                        new ProgressMenuItem(19, "item 3.1.2.2"),
                     }),
-                    new ProgressMenuItem(20, "item 3.1.3", onSelect: OnSelectHandler),
+                    new ProgressMenuItem(20, "item 3.1.3"),
                 }),
             }),
-            new ProgressMenuItem(21, "item 4", onSelect: OnSelectHandler),
+            new ProgressMenuItem(21, "item 4"),
         };
         base.OnInitialized();
     }

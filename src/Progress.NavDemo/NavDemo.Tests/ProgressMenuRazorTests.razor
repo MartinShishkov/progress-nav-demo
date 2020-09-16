@@ -4,7 +4,7 @@
 
 <SnapshotTest Description="ProgressMenu renders correct structure">
     <TestInput>
-        <ProgressMenu Items="Items"/>
+        <ProgressMenu Items="Items" OnItemSelect="OnItemSelectHandler"/>
     </TestInput>
     <ExpectedOutput>
         <nav class="progress-menu">
@@ -30,7 +30,7 @@
 <Fixture Description="Clicking on the first root element should update message" Test="Test">
     <ComponentUnderTest>
         <div>
-            <ProgressMenu Items="Items"/>
+            <ProgressMenu Items="Items" OnItemSelect="OnItemSelectHandler"/>
             <h1>@TestMessage</h1>
         </div>
     </ComponentUnderTest>
@@ -43,14 +43,19 @@
 
     public ProgressMenuItem[] Items => new[]
     {
-        new ProgressMenuItem(1, "root 1", i => { TestMessage = $"First root clicked {i}";}, new[]
+        new ProgressMenuItem(1, "root 1", new[]
         {
-            new ProgressMenuItem(2, "1.1", i => {}, new[]
+            new ProgressMenuItem(2, "1.1", new[]
             {
-                new ProgressMenuItem(3, "1.1.1", i => {}),
+                new ProgressMenuItem(3, "1.1.1"),
             }),
         })
     };
+
+    public void OnItemSelectHandler(int id)
+    {
+        TestMessage = $"First root clicked {id}";
+    }
 
     public string TestMessage { get; set; }
 

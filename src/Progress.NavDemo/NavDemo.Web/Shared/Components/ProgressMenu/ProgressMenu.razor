@@ -3,7 +3,7 @@
     <ul>
         @foreach (var item in Items)
         {
-            <ProgressMenuItemComponent Item="@item" IsRoot="true" PlacementClass="menu-bottom"/>
+            <ProgressMenuItemComponent Item="@item" OnSelect="@OnItemSelect" IsRoot="true" PlacementClass="menu-bottom"/>
         }
     </ul>
 </nav>
@@ -12,4 +12,7 @@
 @code {
     [Parameter]
     public ProgressMenuItem[] Items { get; set; }
+
+    [Parameter]
+    public Action<int> OnItemSelect { get; set; }
 }

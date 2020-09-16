@@ -8,13 +8,13 @@
 }
 
 <li class="@(IsRoot ? "root-item" : "sub-item")">
-    <a href="javascript:void(0);" @onclick="() => Item.OnSelect(Item.Id)">@Item.Text <i>@icon</i></a>
+    <a href="javascript:void(0);" @onclick="() => OnSelect(Item.Id)">@Item.Text <i>@icon</i></a>
     @if (Item.HasChildren)
     {
         <ul class="sub-menu @PlacementClass">
             @foreach (var item in Item.Children)
             {
-                <ProgressMenuItemComponent Item="@item" IsRoot="false" PlacementClass="menu-right" />
+                <ProgressMenuItemComponent Item="@item" OnSelect="OnSelect" IsRoot="false" PlacementClass="menu-right" />
             }
         </ul>
     }
@@ -29,4 +29,7 @@
 
     [Parameter]
     public string PlacementClass { get; set; }
+
+    [Parameter]
+    public Action<int> OnSelect { get; set; }
 }

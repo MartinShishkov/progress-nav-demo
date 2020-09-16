@@ -1,4 +1,5 @@
-﻿using Bunit;
+﻿using System;
+using Bunit;
 using NavDemo.Web.Models;
 using NavDemo.Web.Shared.Components.ProgressMenu;
 using Xunit;
@@ -13,11 +14,15 @@ namespace NavDemo.Tests
             var cut = RenderComponent<ProgressMenu>(
                 ("Items", new[]
                 {
-                    new ProgressMenuItem(1, "root 1", i => {}, new[]
+                    new ProgressMenuItem(1, "root 1", new[]
                     {
-                        new ProgressMenuItem(2, "1.1", i => {})
+                        new ProgressMenuItem(2, "1.1")
                     })
-                })
+                }),
+                ("OnItemSelect", new Action<int>(id =>
+                {
+
+                }))
             );
 
             cut.Find("nav").MarkupMatches(
